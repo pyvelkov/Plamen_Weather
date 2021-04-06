@@ -74,7 +74,6 @@ extension ViewController : UIPickerViewDelegate, UIPickerViewDataSource{
     
     //this is the main function that will be doing all the heavy lifting of getting data and updating it
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(#function, "Selected City : \(self.cityList[row])")
         self.citySelected = self.cityList[row]
         self.weatherFetcher.fetchDataFromAPI(city: self.citySelected)
         self.setWeatherData()

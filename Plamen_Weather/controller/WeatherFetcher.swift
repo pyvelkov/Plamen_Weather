@@ -8,9 +8,6 @@
 import Foundation
 
 class WeatherFetcher : ObservableObject{
-    var cityVC : String = "London"
-    
-    
     @Published var weatherDetails = Weather()
     
     private static var shared : WeatherFetcher?
@@ -23,7 +20,7 @@ class WeatherFetcher : ObservableObject{
         }
     }
     
-    func fetchDataFromAPI(city : String){
+    func fetchDataFromAPI(city : String = "Toronto"){
         var apiURL = "https://api.weatherapi.com/v1/current.json?key=a1b20ff06ed74c60a08143803210404&q=\(city)&aqi=no"
         guard let api = URL(string: apiURL) else{
             return
